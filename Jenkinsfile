@@ -1,5 +1,6 @@
 pipeline{
     agent any
+
     tools{
         jdk 'jdk17'
         maven 'maven_3.9.4'
@@ -20,16 +21,15 @@ pipeline{
                 sh 'mvn clean package -DskipTests'
             }
         }
-        stage("Building Docker Image")
+        stage("Building Docker Image"){
             steps{
                 sh 'sudo -S docker image build -t eureka-server .'
             }
         }
-         stage("Tag Docker Image")
-                steps{
-                    sh 'sudo docker tag eureka-server ashish142/eureka-server:1.0.0'
-                }
-         }
+        stage("Tag Docker Image"){
+            steps{
+                sh 'sudo docker tag eureka-server ashish142/eureka-server:1.0.0'
+            }
+        }
     }
-
 }
