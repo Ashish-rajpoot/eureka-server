@@ -14,4 +14,4 @@ COPY target/eureka-server.war /app/eureka-server.war
 #EXPOSE 8080
 
 # Command to run your Spring Boot application when the container starts
-CMD ["java", "-jar", "-Dserver.port=0", "eureka-server.war"]
+CMD ["java", "-jar", "eureka-server.war"]
