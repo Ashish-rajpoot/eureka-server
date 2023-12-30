@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim-buster
 WORKDIR /app
 
 # Copy the packaged Spring Boot application JAR file into the container
-COPY target/eureka-server.war /app/eureka-server.war
+COPY target/eureka-server.jar /app
 
 # Set environment variables (if needed)
 #ENV SOME_ENV_VARIABLE=some_value
@@ -14,4 +14,4 @@ COPY target/eureka-server.war /app/eureka-server.war
 EXPOSE 8761
 
 # Command to run your Spring Boot application when the container starts
-CMD ["java", "-jar", "eureka-server.war"]
+CMD ["java", "-jar", "eureka-server.jar"]
